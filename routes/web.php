@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [TarefaController::class, 'index'])->name('tarefa.index');
+Route::post('/store', [TarefaController::class, 'store'])->name('tarefa.store');

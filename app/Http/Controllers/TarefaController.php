@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tarefa;
 use Illuminate\Http\Request;
 
 class TarefaController extends Controller
@@ -34,7 +35,17 @@ class TarefaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'tarefa' => 'required'
+        ], [
+            'required' => 'campo obrigatório'
+        ]);
+
+        Tarefa::create([
+            'tarefa' => $request->tarefa
+        ]);
+
+        return redirect()->route('tarefa.index')->with('message', 'Tarefa salva com sucesso');
     }
 
     /**

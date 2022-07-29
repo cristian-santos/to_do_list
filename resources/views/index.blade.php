@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <scrip src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link href="./assets/css/style.css" rel="stylesheet">
     <title>To do list</title>
 </head>
@@ -16,13 +16,25 @@
                 <div class="col">
                     <h4>To do List</h4>
                     <hr />
-                    <div class="input-group">
-                        <input type="text" class="form-control @error('tarefa') is-invalid @enderror" name="tarefa" placeholder="Cadastrar nova tarefa">
-                        <div class="input-group-append" id="button-addon4">
-                            <button class="btn btn-secondary" type="submit">Cadastrar</button>
+
+                    <main>
+                        <div class="container-fluid">
+                            <div class="row">
+                                @if(session('message'))
+                                <div class="alert alert-success alert-dismissible">{{ session('message')}}</div>
+                                @endif
+                            </div>
+                    </main>
+
+                    <form action="{{ route('tarefa.store') }}" method="POST">
+                        @csrf
+                        <div class="input-group">
+                            <input type="text" class="form-control @error('tarefa') is-invalid @enderror" name="tarefa" placeholder="Cadastrar nova tarefa">
+                            <div class="input-group-append" id="button-addon4">
+                                <button class="btn btn-secondary" type="submit">Cadastrar</button>
+                            </div>
                         </div>
-                    </div>
-                    <br>
+                    </form>
 
                     <div class="row mb-3 d-flex align-items-center">
                         <div class="col-sm-9">
