@@ -49,7 +49,7 @@
                             </a>
                             @else
                             <a href="{{ route('tarefa.reativar', $item->id)}}" style="text-decoration: none">
-                                <button type="button" class="btn btn-dark" title="Reabrir tarefa">
+                                <button type="button" class="btn btn-dark" title="Reativar tarefa">
                                     <i class="fa-solid fa-flag-checkered"></i>
                                 </button>
                             </a>

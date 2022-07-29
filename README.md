@@ -15,5 +15,6 @@
 # Utilização
 
   - Baixar o projeto.
-  - Importar o banco de dados no mysql worckbench.
+  - Importar o banco de dados diponibilizado no mysql workbench.
+  - Informar suas credenciais no arquivo .env do laravel.
   - Executar o servidor local do laravel. (php artisan serve).
