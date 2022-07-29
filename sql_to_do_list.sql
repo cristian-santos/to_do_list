@@ -26,12 +26,12 @@ DROP TABLE IF EXISTS `tarefa`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tarefa` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `tarefa` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tarefa` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(1) DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -51,4 +51,4 @@ CREATE TABLE `tarefa` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-29 16:05:16
+-- Dump completed on 2022-07-29 16:32:12

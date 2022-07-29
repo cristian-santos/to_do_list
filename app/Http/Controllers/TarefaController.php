@@ -40,9 +40,10 @@ class TarefaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'tarefa' => 'required'
+            'tarefa' => 'required|max:2000'
         ], [
-            'required' => 'Campo obrigatório!'
+            'required' => 'Campo obrigatório!',
+            'max' => 'Limite de caracteres não suportado'
         ]);
 
         Tarefa::create([
