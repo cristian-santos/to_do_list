@@ -21,3 +21,4 @@ Route::get('/reativar/{id}', [TarefaController::class, 'reativarTarefa'])->name(
 Route::get('/destroy/{id}', [TarefaController::class, 'destroy'])->name('tarefa.destroy');
 Route::get('/edit/{id}', [TarefaController::class, 'edit'])->name('tarefa.edit');
 Route::put('/update/{id}', [TarefaController::class, 'update'])->name('tarefa.update');
+Route::get('/reativar/{id}', [TarefaController::class, 'reativarTarefa'])->name('tarefa.reativar');

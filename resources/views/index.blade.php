@@ -71,7 +71,11 @@
                                 <button class="btn btn-primary" title="Editar tarefa"><i class="fa-solid fa-pen-to-square"></i></button>
                             </a>
                             @else
-                                <button class="btn btn-dark" disabled>Tarefa concluída</button>
+                            <a href="{{ route('tarefa.reativar', $item->id)}}" style="text-decoration: none">
+                                <button type="button" class="btn btn-dark" title="Reabrir tarefa">
+                                    <i class="fa-solid fa-flag-checkered"></i>
+                                </button>
+                            </a>
                             @endif
 
                             <a href="{{ route('tarefa.destroy', $item->id)}}">

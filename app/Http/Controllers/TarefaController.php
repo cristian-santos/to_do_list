@@ -113,12 +113,26 @@ class TarefaController extends Controller
      * 
      * Concluír tarefa
      */
-    public function concluirTarefa(Request $request, $id)
+    public function concluirTarefa($id)
     {
         $tarefa = Tarefa::findOrFail($id);
         $tarefa->status = true;
         $tarefa->save();
 
         return redirect()->route('tarefa.index')->with('message', 'Tarefa concluída com sucesso');
+    }
+
+    /**
+     * 
+     * Reativar tarefa
+     */
+    public function reativarTarefa($id)
+    {
+        $tarefa = Tarefa::findOrFail($id);
+        $tarefa->status = false;
+        $tarefa->save();
+
+        return redirect()->route('tarefa.index')->with('message', 'Tarefa reativada com com sucesso');
+
     }
 }
