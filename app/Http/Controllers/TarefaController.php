@@ -71,7 +71,8 @@ class TarefaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dados['tarefas'] = Tarefa::findOrFail($id);
+        return view('editar', $dados);
     }
 
     /**
@@ -83,7 +84,17 @@ class TarefaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'tarefa' => 'required'
+        ], [
+            'required' => 'campo obrigatório'
+        ]);
+
+        $tarefa = Tarefa::findOrFail($id);
+        $tarefa->tarefa = $request->tarefa;
+        $tarefa->save();
+
+        return redirect()->route('tarefa.index')->with('message', 'Tarefa atualizada com sucesso');
     }
 
     /**

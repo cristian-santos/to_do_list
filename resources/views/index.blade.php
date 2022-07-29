@@ -67,7 +67,7 @@
                                 </button>
                             </a>
                            
-                            <a href="#" style="text-decoration: none">
+                            <a href="{{ route('tarefa.edit', $item->id)}}" style="text-decoration: none">
                                 <button class="btn btn-primary" title="Editar tarefa"><i class="fa-solid fa-pen-to-square"></i></button>
                             </a>
                             @else

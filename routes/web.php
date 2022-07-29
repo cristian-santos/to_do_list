@@ -19,4 +19,5 @@ Route::post('/store', [TarefaController::class, 'store'])->name('tarefa.store');
 Route::get('/concluir/{id}', [TarefaController::class, 'concluirTarefa'])->name('tarefa.concluir');
 Route::get('/reativar/{id}', [TarefaController::class, 'reativarTarefa'])->name('tarefa.reativar');
 Route::get('/destroy/{id}', [TarefaController::class, 'destroy'])->name('tarefa.destroy');
-
+Route::get('/edit/{id}', [TarefaController::class, 'edit'])->name('tarefa.edit');
+Route::put('/update/{id}', [TarefaController::class, 'update'])->name('tarefa.update');
