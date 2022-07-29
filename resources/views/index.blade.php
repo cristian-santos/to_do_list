@@ -17,15 +17,17 @@
                 <div class="col">
                     <h4>To do List</h4>
                     <hr />
-
-                    <main>
+          
+                    <!-- Exibição dos alertas -->
+                    @if(session('message'))
                         <div class="container-fluid">
                             <div class="row">
-                                @if(session('message'))
-                                <div class="alert alert-success alert-dismissible">{{ session('message')}}</div>
-                                @endif
+                                <div class="alert alert-success alert-dismissible">{{ session('message')}}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
-                    </main>
+                        </div>
+                    @endif
+                    <!-- Fim exibição dos alertas -->
 
                     <form action="{{ route('tarefa.store') }}" method="POST">
                         @csrf
