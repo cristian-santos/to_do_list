@@ -36,9 +36,10 @@
                         </div>
                     </form>
 
+                    @foreach ($tarefas as $item)
                     <div class="row mb-3 d-flex align-items-center">
                         <div class="col-sm-9">
-                           lavar moto
+                           {{ $item->tarefa }}
                         <hr>
                         </div>
                         <div class="col-sm-3">
@@ -57,7 +58,7 @@
                         </a>
                         </div>
                     </div>
-                    
+                    @endforeach
                 </div>
             </div>
         </div>

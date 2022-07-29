@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tarefa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TarefaController extends Controller
 {
@@ -14,7 +15,8 @@ class TarefaController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $dados['tarefas'] = DB::table('tarefa')->get();
+        return view('index', $dados);
     }
 
     /**
