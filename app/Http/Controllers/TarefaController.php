@@ -15,7 +15,7 @@ class TarefaController extends Controller
      */
     public function index()
     {
-        $dados['tarefas'] = DB::table('tarefa')->get();
+        $dados['tarefas'] = DB::table('tarefa')->orderBy('status')->get();
         return view('index', $dados);
     }
 
@@ -94,5 +94,18 @@ class TarefaController extends Controller
     {
         $tarefa = Tarefa::destroy($id);
         return redirect()->route('tarefa.index')->with('message', 'Tarefa excluída com sucesso');
+    }
+
+    /**
+     * 
+     * Concluír tarefa
+     */
+    public function concluirTarefa(Request $request, $id)
+    {
+        $tarefa = Tarefa::findOrFail($id);
+        $tarefa->status = true;
+        $tarefa->save();
+
+        return redirect()->route('tarefa.index')->with('message', 'Tarefa concluída com sucesso');
     }
 }

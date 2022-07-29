@@ -16,5 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [TarefaController::class, 'index'])->name('tarefa.index');
 Route::post('/store', [TarefaController::class, 'store'])->name('tarefa.store');
+Route::get('/concluir/{id}', [TarefaController::class, 'concluirTarefa'])->name('tarefa.concluir');
+Route::get('/reativar/{id}', [TarefaController::class, 'reativarTarefa'])->name('tarefa.reativar');
 Route::get('/destroy/{id}', [TarefaController::class, 'destroy'])->name('tarefa.destroy');
 
