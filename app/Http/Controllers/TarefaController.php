@@ -16,6 +16,9 @@ class TarefaController extends Controller
     public function index()
     {
         $dados['tarefas'] = DB::table('tarefa')->orderBy('status')->get();
+        $dados['total_tarefas'] = DB::table('tarefa')->count();
+        $dados['tarefas_concluidas'] = DB::table('tarefa')->where('status', true)->count();
+        // dd($dados);
         return view('index', $dados);
     }
 

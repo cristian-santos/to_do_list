@@ -16,6 +16,7 @@
             <div class="row">
                 <div class="col">
                     <h4>To do List</h4>
+                    <h6>Tarefas concluídas: {{ $tarefas_concluidas }}/{{ $total_tarefas }} </h6>
                     <hr />
           
                     <!-- Exibição dos alertas -->
