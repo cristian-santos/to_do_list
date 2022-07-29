@@ -20,6 +20,18 @@
                     <hr />
           
                     <!-- Exibição dos alertas -->
+
+                    @if($errors->any())
+                    <div class="container-fluid">
+                        <div class="row">
+                            @foreach($errors->all() as $error)
+                            <div class="alert alert-danger alert-dismissible">{{ $error}}
+                                @endforeach
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    @endif
+
                     @if(session('message'))
                         <div class="container-fluid">
                             <div class="row">
@@ -33,7 +45,7 @@
                     <form action="{{ route('tarefa.store') }}" method="POST">
                         @csrf
                         <div class="input-group">
-                            <input type="text" class="form-control @error('tarefa') is-invalid @enderror" name="tarefa" placeholder="Cadastrar nova tarefa">
+                            <input type="text" class="form-control" name="tarefa" placeholder="Cadastrar nova tarefa">
                             <div class="input-group-append" id="button-addon4">
                                 <button class="btn btn-secondary" type="submit">Cadastrar</button>
                             </div>

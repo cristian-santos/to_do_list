@@ -18,7 +18,6 @@ class TarefaController extends Controller
         $dados['tarefas'] = DB::table('tarefa')->orderBy('status')->get();
         $dados['total_tarefas'] = DB::table('tarefa')->count();
         $dados['tarefas_concluidas'] = DB::table('tarefa')->where('status', true)->count();
-        // dd($dados);
         return view('index', $dados);
     }
 
@@ -43,7 +42,7 @@ class TarefaController extends Controller
         $request->validate([
             'tarefa' => 'required'
         ], [
-            'required' => 'campo obrigatório'
+            'required' => 'Campo obrigatório!'
         ]);
 
         Tarefa::create([
