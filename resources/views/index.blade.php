@@ -18,6 +18,21 @@
                     <h4>To do List</h4>
                     <h6>Tarefas concluídas: {{ $tarefas_concluidas }}/{{ $total_tarefas }} </h6>
                     <hr />
+
+                    @if($exibirConcluidas == 'true')
+                        <div class="form-floating d-flex justify-content-start mb-3" style="margin-right: 10px">
+                            <a href="{{ route('tarefa.index', 'false')}}">
+                                <button class="btn btn-outline-danger" title="Exibir não concluídas"><i class="fa-solid fa-eye"></i></button>
+                            </a>
+                        </div>
+                    @else
+                        <div class="form-floating d-flex justify-content-start mb-3">
+                            <a href="{{ route('tarefa.index', 'true')}}">
+                                <button class="btn btn-outline-danger" title="Exibir concluídas"><i class="fa-solid fa-eye"></i></button>
+                            </a>
+                        </div>
+                    @endif
+
                     @include('components.alerts')
                     <form action="{{ route('tarefa.store') }}" method="POST">
                         @csrf

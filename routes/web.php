@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::controller(TarefaController::class)->prefix('/')->group(function () {
-    Route::get('/', 'index')->name('tarefa.index');
+    Route::get('/{exibirConcluidas?}', 'index')->name('tarefa.index');
     Route::post('/store', 'store')->name('tarefa.store');
     Route::get('/edit/{id}', 'edit')->name('tarefa.edit');
     Route::put('/update/{id}', 'update')->name('tarefa.update');

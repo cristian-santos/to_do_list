@@ -13,9 +13,16 @@ class TarefaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($exibirConcluidas = 'false')
     {
-        $dados['tarefas'] = DB::table('tarefa')->orderBy('status')->get();
+
+        if($exibirConcluidas == 'true') {
+            $dados['tarefas'] = DB::table('tarefa')->orderBy('status')->where('status', true)->get();
+        } else {
+            $dados['tarefas'] = DB::table('tarefa')->where('status', false)->get();
+        }
+
+        $dados['exibirConcluidas'] = $exibirConcluidas;
         $dados['total_tarefas'] = DB::table('tarefa')->count();
         $dados['tarefas_concluidas'] = DB::table('tarefa')->where('status', true)->count();
         return view('index', $dados);
