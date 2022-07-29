@@ -53,7 +53,7 @@
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button>
                         </a>
 
-                        <a href="#">
+                        <a href="{{ route('tarefa.destroy', $item->id)}}">
                             <button class="btn btn-danger">Deletar</button>
                         </a>
                         </div>

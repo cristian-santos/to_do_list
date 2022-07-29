@@ -92,6 +92,7 @@ class TarefaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tarefa = Tarefa::destroy($id);
+        return redirect()->route('tarefa.index')->with('message', 'Tarefa excluída com sucesso');
     }
 }
